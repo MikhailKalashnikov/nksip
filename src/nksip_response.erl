@@ -194,6 +194,6 @@ header(Name, Handle) when is_binary(Handle) ->
 -spec wait_491() -> 
     ok.
 wait_491() ->
-    timer:sleep(10*crypto:rand_uniform(210, 400)).
+    timer:sleep(10*(rand:uniform(190) + 210)).
 
 
