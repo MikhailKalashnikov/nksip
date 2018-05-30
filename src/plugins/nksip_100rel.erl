@@ -145,7 +145,7 @@ uas_store_info(Resp, UAS) ->
     case nklib_util:get_value(nksip_100rel_pracks, Meta, []) of
         [] ->
             RSeq = case nklib_util:get_value(nksip_100rel_rseq, Meta, 0) of
-                0 -> crypto:rand_uniform(1, 2147483647);
+                0 -> rand:uniform(2147483647);
                 LastRSeq -> LastRSeq+1
             end,
             Headers1 = nksip_headers:update(Resp, [{single, <<"rseq">>, RSeq}]),

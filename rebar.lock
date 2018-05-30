@@ -36,7 +36,7 @@
   1},
  {<<"nkservice">>,
   {git,"https://github.com/MikhailKalashnikov/nkservice.git",
-       {ref,"f6c0357aed8676d712b45090bc0b4ee719f54159"}},
+       {ref,"345ab9716a57096424db2409775fbacb4bc6f0de"}},
   0},
  {<<"ranch">>,
   {git,"https://github.com/ninenines/ranch.git",
