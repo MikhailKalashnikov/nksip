@@ -24,7 +24,6 @@
 
 -include("nksip_event_compositor.hrl").
 
--compile([export_all]).
 -export([get_all/0, clear/0, print_all/0]).
 
 

@@ -354,7 +354,7 @@ nks_sip_uac_auto_register_upd_reg(Reg, Code, Meta, SrvState) ->
                 _ -> AnyOK
             end,
             Upper = min(MaxTime, BaseTime*math:pow(2, Fails+1)),
-            Time = round(crypto:rand_uniform(50, 101) * Upper / 100),
+            Time = round((rand:uniform(50) + 50) * Upper / 100),
             ?notice(SrvId, CallId, "Outbound registration failed "
                          "(basetime: ~p, fails: ~p, upper: ~p, time: ~p)",
                          [BaseTime, Fails+1, Upper, Time]),
@@ -390,7 +390,7 @@ start_refresh(SrvId, Meta, Transp, Pid, Reg) ->
         _ when Transp==udp -> Config#nksip_uac_auto_outbound.udp_ttl;
         _ -> Config#nksip_uac_auto_outbound.tcp_ttl
     end,
-    Rand = crypto:rand_uniform(80, 101),
+    Rand = (rand:uniform(20) + 80),
     Time = (Rand*Secs) div 100,
     Ref = {nksip_uac_auto_outbound_notify, RegId},
     case nksip_protocol:start_refresh(Pid, Time, Ref) of
