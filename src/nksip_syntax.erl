@@ -40,7 +40,8 @@ app_syntax() ->
     #{
         sync_call_time => nat_integer,
         max_calls => {integer, 1, 1000000},
-        msg_routers => {integer, 1, 127}
+        msg_routers => {integer, 1, 127},
+        sip_instance_tag => boolean
     }.
 
 
@@ -48,7 +49,8 @@ app_defaults() ->
     #{
         sync_call_time => 30000,            % MSecs
         max_calls => 100000,                % Each Call-ID counts as a call
-        msg_routers => 16                   % Number of parallel msg routers 
+        msg_routers => 16,                   % Number of parallel msg routers 
+        sip_instance_tag => true         % Add sip.instance tag
     }.
     
 
