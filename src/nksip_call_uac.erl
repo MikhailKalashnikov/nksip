@@ -54,6 +54,7 @@
     nksip_call:call().
 
 request(Req, Opts, From, Call) ->
+    ?call_debug("Req ~p, Opts ~p, From ~p, Call ~p", [Req, Opts, From, Call]),
     #sipmsg{class={req, Method}, id=MsgId} = Req,
     #call{srv_id=SrvId} = Call,
     {continue, [Req1, Opts1, From1, Call1]} = 
@@ -76,6 +77,7 @@ request(Req, Opts, From, Call) ->
             ?call_debug("UAC ~p sending request ~p ~p (~s)", 
                         [TransId, Method, Opts1, MsgId])
     end,
+    ?call_debug("before send UAC ~p, Call2 ~p", [UAC, Call2]),
     nksip_call_uac_send:send(UAC, Call2).
 
 

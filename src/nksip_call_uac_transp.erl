@@ -47,7 +47,7 @@ send_request(Req, Opts) ->
         ruri = RUri, 
         routes = Routes
     } = Req,
-    ?call_debug("UAC send opts: ~p", [Opts]),
+    ?call_debug("UAC send opts: ~p, Req ~p", [Opts, Req]),
     case Routes of
         [] -> 
             DestUri = RUri1 = RUri,
