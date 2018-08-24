@@ -220,7 +220,7 @@ send(SrvId, Spec, Msg, Fun, Opts) when is_list(Spec) ->
             {error, Error}
     end.
 
-
+send_opts({transport, _}) -> true;
 send_opts({class, _}) -> true;
 send_opts({connect_timeout, _}) -> true;
 send_opts({no_dns_cache, _}) -> true;
